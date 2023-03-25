@@ -27,12 +27,12 @@ header .logo{
   padding: 10px 0 0 20px;
 }
 
-header .logo img{
-  width: 75px;
-  height: auto;
-  z-index: 2; /*check*/
-}
 
+header .logo .logo2{
+  width: 400px;
+  height: auto;
+  z-index: 2;
+}
 
 header .navbar ul{
   display: flex;
@@ -56,14 +56,26 @@ header .navbar ul li a:hover{ /*check a:hover*/
 }
 
 header .navbar ul .contact a{
-  background-color: #5B8FAD;
+  background-color: #e6a117;
   border-radius: 30px;
   color: #fff;
   padding: 15px 25px;
 }
 
 header .navbar ul .contact a:hover{
-  opacity: 0.5; /*check opacity*/
+  color: #e6a117;
+  opacity: 0.5;
+}
+
+header .navbar ul .download a{
+  background-color: #5B8FAD;
+  border-radius: 30px;
+  color: #fff;
+  padding: 15px 25px;
+}
+
+header .navbar ul .download a:hover{
+  opacity: 0.5;
 }
 
 header .drawer{
@@ -95,10 +107,15 @@ header .drawer{
   background: -webkit-linear-gradient(35deg, rgb(189,120,230),#5B8FAD);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; /*check*/
-  font-size: 40px;
+  font-size: 50px;
+  line-height: 20px;
   font-weight: bold;
   margin-bottom: 24px;
-  padding: 10px;
+  padding: 15px;
+}
+
+.font1 .sub_title{
+  font-size: 40px;
 }
 
 /*-webkit系は要check*/
@@ -349,15 +366,24 @@ header .drawer{
   color: #5B8FAD;
 }
 
+/*ボタンまとめ*/
+.btn_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(250,245,245);
+}
+
 .contact_btn{
   background:rgb(250,245,245);
   padding-bottom: 100px;
+  width: 30%;
+  margin: 0 30px 0 auto;
 }
 
 .contact_btn .btn{
   text-align: center;
   background: #e6a117;
-  width: 17%;
   margin: 0 auto;
   padding: 10px 20px;
   border-radius: 10px;
@@ -366,6 +392,30 @@ header .drawer{
 .contact_btn .btn a{
   color: #fff;
   font-weight: bold;
+}
+
+.download_btn{
+  background: rgb(250,245,245);
+  padding-bottom: 100px;
+  width: 30%;
+  margin: 0 auto 0 30px;
+}
+
+.download_btn .btn2{
+  text-align: center;
+  background: #5B8FAD;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.download_btn .btn2 a{
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn_wrap p{
+  font-size: 30px;
 }
 
 footer{
