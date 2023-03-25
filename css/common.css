@@ -28,10 +28,14 @@ header .logo{
 }
 
 
-header .logo .logo2{
+header .logo .logo2-pc{
   width: 400px;
   height: auto;
   z-index: 2;
+}
+
+header .logo .logo2-mobile{
+  display: none;
 }
 
 header .navbar ul{
@@ -53,6 +57,11 @@ header .navbar ul li a{
 
 header .navbar ul li a:hover{ /*check a:hover*/
   color: #5B8FAD;
+}
+
+header .navbar ul .contact, .download{
+  margin: 30px 5px 0;
+
 }
 
 header .navbar ul .contact a{
@@ -257,6 +266,23 @@ header .drawer{
   height: auto;
 }
 
+.app .app_item .price_table{
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  font-size: 15px;
+}
+
+.app .app_item .price_table .price{
+  border: 3px double rgb(189, 120, 230);
+}
+
+.app .app_item .price_table .price tr, th, td{
+  border: 1px solid rgb(189, 120, 230);
+  padding: 5px 10px;
+}
+
+
 .how{
   background: rgb(250, 245, 245);
 }
@@ -374,14 +400,18 @@ header .drawer{
   background: rgb(250,245,245);
 }
 
-.contact_btn{
+.contact_btn1{
   background:rgb(250,245,245);
   padding-bottom: 100px;
   width: 30%;
   margin: 0 30px 0 auto;
 }
 
-.contact_btn .btn{
+.contact_btn2{
+  display: none;
+}
+
+.contact_btn1 .btn{
   text-align: center;
   background: #e6a117;
   margin: 0 auto;
@@ -389,19 +419,23 @@ header .drawer{
   border-radius: 10px;
 }
 
-.contact_btn .btn a{
+.contact_btn1 .btn a{
   color: #fff;
   font-weight: bold;
 }
 
-.download_btn{
+.download_btn1{
   background: rgb(250,245,245);
   padding-bottom: 100px;
   width: 30%;
   margin: 0 auto 0 30px;
 }
 
-.download_btn .btn2{
+.download_btn2{
+  display: none;
+}
+
+.download_btn1 .btn2{
   text-align: center;
   background: #5B8FAD;
   margin: 0 auto;
@@ -409,7 +443,7 @@ header .drawer{
   border-radius: 10px;
 }
 
-.download_btn .btn2 a{
+.download_btn1 .btn2 a{
   color: #fff;
   font-weight: bold;
 }
@@ -477,7 +511,7 @@ footer{
   color: #fff;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1024px){ /*ipad pro*/
   header a .logo{
     top: 0;
     padding: 10px;
@@ -496,7 +530,7 @@ footer{
     width: 80%;
   }
   .app_wrap{
-    display: unset;
+    /*display: unset; */
   }
   .app .app_item{
     margin: 0;
@@ -571,8 +605,127 @@ footer{
   }
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 780px) { /*ipad*/
+
+  header a .logo {
+    top: 0;
+    padding: 10px;
+  }
+
+  .top {
+    display: block;
+  }
+
+  .top .inner {
+    display: unset;
+    /*check*/
+    margin-right: 0;
+    bottom: 0;
+  }
+
+  .app {
+    padding: 50px 50px 100px;
+    width: 80%;
+  }
+
+  .app_wrap {
+    display: unset;
+    position: relative;
+    
+  }
+
+  .app .app_item {
+    margin: 0;
+  }
+
+  .app .app_img img {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  header .drawer {
+    visibility: visible;
+    width: 24px;
+    right: 15px;
+    margin: 18px;
+    position: absolute;
+    border-top: solid 4px #aaaaaa;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  header .drawer::before,
+  header .drawer::after {
+    content: "";
+    display: block;
+    width: 24px;
+    background: #aaaaaa;
+    height: 4px;
+    position: absolute;
+    right: 0;
+    -webkit-transition: all 0.5s;
+    /*check*/
+    transition: all 0.5s;
+    /*check*/
+  }
+
+  header .drawer::before {
+    top: 6px;
+  }
+
+  header .drawer::after {
+    top: 15px;
+  }
+
+  header .navbar {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: #fff;
+  }
+
+  header .navbar ul {
+    display: block;
+    text-align: center;
+    float: none;
+    top: 20%;
+  }
+
+  header .navbar ul li a {
+    font: 18px;
+    line-height: 2;
+  }
+
+  body.nav-open header .drawer {
+    border-top: 0;
+  }
+
+  body.nav-open header .drawer::before {
+    top: 9px;
+    transform: rotate(-45deg);
+  }
+
+  body.nav-open header .drawer::after {
+    top: 9px;
+    transform: rotate(45deg);
+  }
+}
+
+
+@media screen and (max-width: 480px){ /*スマホ*/
   
+  header .logo .logo2-pc{
+    display: none;
+  }
+
+  header .logo .logo2-mobile{
+    display: block;
+  }
+
   header a.logo img{
     width: 40px;
   }
@@ -643,10 +796,25 @@ footer{
   .news .txt{
     padding: 50px 30px;
   }
-  .contact_btn .btn{
+
+  .btn_wrap .contact_btn2{
     width: unset;
-    margin: 0 70px;
+    margin: 20px auto;
+  } 
+  
+  .btn_wrap .download_btn2{
+    width: unset;
+    margin: 20px auto;
   }
+
+  .btn_wrap .btn {
+    font-size: 10px;
+  }
+  
+  .btn_wrap .btn2 {
+    font-size: 10px;
+  }
+
   .footer_logo1 img{
     width: 150px;
   }
@@ -673,10 +841,64 @@ footer{
     width: unset;
     margin: 0 100px;
   }
-  .contact_btn .btn{
-    width: unset;
-    margin: 0 100px;
+  .contact_btn1, .download_btn1{
+    display: none;
   }
+
+  .contact_btn2, .download_btn2{
+    display: block;
+  }
+  
+  .contact_btn2 {
+    background: rgb(250, 245, 245);
+    padding-bottom: 100px;
+    width: 30%;
+    margin: 0 30px 0 auto;
+  }
+    
+  .contact_btn2 .btn {
+    text-align: center;
+    background: #e6a117;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+    
+  .contact_btn2 .btn a {
+    color: #fff;
+    font-weight: bold;
+  }
+    
+  .download_btn2 {
+    background: rgb(250, 245, 245);
+    padding-bottom: 100px;
+    width: 30%;
+    margin: 0 auto 0 30px;
+  }
+    
+    
+  .download_btn2 .btn2 {
+    text-align: center;
+    background: #5B8FAD;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  
+  .download_btn2 .btn2 a {
+    color: #fff;
+    font-weight: bold;
+    }
+
+  .btn_wrap .btn{
+    font-size: 15px;
+  }
+
+  .btn_wrap .btn2{
+    font-size: 15px;
+  }
+
+
   footer .pages{
     display: flex;
     width: 100%;
